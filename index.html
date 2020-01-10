@@ -1,4 +1,87 @@
 <!DOCTYPE html>
+<html lang="en">
+    <head>
+    	<meta charset="UTF-8">
+    	<title>Chat Box Challenge</title>
+		<meta name="description" content="Chat Box Challenge for Monitise">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+        <style type="text/css">
+            .col-xs-12 {
+                height: 200px;
+            }
+            #chatbox {
+                height: 200px;
+                overflow: scroll;
+                background-color: white;
+                border: solid silver 1px;
+            }
+            .container {
+                background-color: burlywood;
+                padding: 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+    	<div class="row">
+            <div class="col-xs-12 col-sm-4">
+                <div id="chatbox">
+                    <p id="0"></p>
+                    <p id="1"></p>
+                    <p id="2"></p>
+                    <p id="3"></p>
+                    <p id="4"></p>
+                    <p id="5"></p>
+                    <p id="6"></p>
+                    <p id="7"></p>
+                    <p id="8"></p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-8">
+                <h4>Should we hire Charles? Please give your input.</h4>
+                <form>
+                    Please Enter your name:<input type='text' name='name'><br>
+                    What are your thoughts: <input type='text' name='thoughts'><br>
+                    <input type='submit' onclick="makeComment(); return false;">
+                </form>
+            </div>
+        </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script type="text/javascript">                
+                var scrDwn = function scrDwn(){
+                    $('#chatbox').animate({
+                    scrollTop: $("#chatbox").prop("scrollHeight")
+                    }, 0);
+                };
+                var comments = [
+                    "Julie: What do you think, should we hire Charles?",
+                    "Sherman: Lets see how he does with the challenge.",
+                    "Giles: He just sent it in, let me check it out first...",
+                    "Julie: I hope he did well, I really like his personality.",
+                    "Sherman: Yeah I met him too, great guy. Lets hope he can code!",
+                    "Giles: Wow, you should see his chat sim. Not too shabby at all.",
+                    "Sherman: Oh let me see it! I'm always on the lookout for a good chatbox.",
+                    "Julie: I just viewed the chatbox. I have to say... pretty pretty pretty good!",
+                    "Julie: Ok then, let's bring him on board :)"
+                ];
+                
+                var counter = 0;
+                function makeComment(){
+                    document.getElementById(counter).innerHTML = comments[counter];
+                    counter++;
+                    scrDwn();
+                    if (counter === 10)
+                    {
+                        counter = 0;
+                    }
+                };
+        </script>
+    </body>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
